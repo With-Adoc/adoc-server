@@ -45,7 +45,7 @@ jobs:
 
       - name: Build and push docker image to Amazon ECR
         run: |
-          docker build -t ${{ steps.login-ecr.outputs.registry }}/adoc-ecr:${{ github.sha }} ./docker
+          docker build -t ${{ steps.login-ecr.outputs.registry }}/adoc-ecr:${{ github.sha }} -f docker/Dockerfile .
           docker push ${{ steps.login-ecr.outputs.registry }}/adoc-ecr:${{ github.sha }}
 
       - name: Deploy on EC2 instance
