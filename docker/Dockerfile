@@ -10,4 +10,6 @@ COPY ${JAR_FILE_PATH} app.jar
 COPY ${ENV_FILE_PATH} .env
 COPY ${DOCKER_RUN_PATH} docker_run.sh
 
+RUN chmod +x docker_run.sh
+
 ENTRYPOINT ["./docker_run.sh"]
