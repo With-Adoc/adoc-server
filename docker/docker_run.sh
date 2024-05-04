@@ -2,8 +2,8 @@
 
 # .env 파일을 읽어 환경 변수로 설정
 set -a
-source /app/.env
+source /app/adoc.env
 set +a
 
 # Java 실행
-exec java -jar /app/app.jar
+exec java -jar /app/adoc/app.jar
