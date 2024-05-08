@@ -1,7 +1,7 @@
 package com.adoc.api.hospital.controller;
 
 import com.adoc.api.hospital.dto.HospitalListRequestDto;
-import com.adoc.api.hospital.dto.HospitalListResponseDto;
+import com.adoc.api.hospital.dto.HospitalListResponseProjection;
 import com.adoc.api.hospital.service.MasterHospitalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +20,7 @@ public class HospitalController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<HospitalListResponseDto>> getHospitalList(HospitalListRequestDto hospitalListRequestDto) {
-        List<HospitalListResponseDto> hospitalList = hospitalService.getHospitalList(hospitalListRequestDto);
-        return ResponseEntity.ok(hospitalList);
+    public ResponseEntity<List<HospitalListResponseProjection>> getHospitalList(HospitalListRequestDto hospitalListRequestDto) {
+        return ResponseEntity.ok(hospitalService.getHospitalList(hospitalListRequestDto));
     }
 }
