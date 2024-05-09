@@ -14,5 +14,5 @@ public interface HospitalListResponseProjectionDto {
     String getHospitalName();
     String getHospitalAddress();
     Integer getReviewCount();
-
+    String getHospitalImageUrl();
 }

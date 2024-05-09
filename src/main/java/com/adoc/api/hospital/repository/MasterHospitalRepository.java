@@ -17,8 +17,10 @@ public interface MasterHospitalRepository extends JpaRepository<MasterHospital, 
             "    IFNULL(MH.hospital_rating, 0) AS hospitalRating, " +
             "    MH.hospital_name AS hospitalName, " +
             "    MH.hospital_address AS hospitalAddress, " +
-            "    HR.reviewCount AS reviewCount " +
+            "    HR.reviewCount AS reviewCount, " +
+            "    HI.hospital_image_url AS hospitalImageUrl " +
             "FROM master_hospitals MH " +
+            "INNER JOIN hospital_images HI ON MH.hospital_id = HI.hospital_id " +
             "LEFT JOIN ( " +
             "    SELECT " +
             "          hospital_id " +
