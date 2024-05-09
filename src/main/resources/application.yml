@@ -3,3 +3,8 @@ spring:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false # true 변경시 쿼리 로그 출력
