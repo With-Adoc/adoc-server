@@ -13,7 +13,6 @@ public class HospitalListRequestDto extends PaginationDto {
     private Boolean isPublicNoninsuredCost;
     private SortBy sortBy;
 
-
     public enum SortBy {
         RATING_DESC(Sort.by(Sort.Direction.DESC, "hospitalRating")),
         REVIEW_COUNT_DESC(Sort.by(Sort.Direction.DESC, "reviewCount"));

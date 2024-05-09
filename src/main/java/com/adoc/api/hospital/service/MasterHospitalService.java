@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class MasterHospitalService {
     private final MasterHospitalRepository hospitalRepository;
@@ -27,6 +26,4 @@ public class MasterHospitalService {
                 pr
         );
     }
-
-
 }
