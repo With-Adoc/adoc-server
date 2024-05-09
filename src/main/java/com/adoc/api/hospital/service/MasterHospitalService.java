@@ -1,10 +1,9 @@
 package com.adoc.api.hospital.service;
 
 import com.adoc.api.hospital.dto.HospitalListRequestDto;
-import com.adoc.api.hospital.dto.HospitalListResponseProjection;
+import com.adoc.api.hospital.dto.HospitalListResponseProjectionDto;
 import com.adoc.api.hospital.repository.MasterHospitalRepository;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,16 +17,15 @@ public class MasterHospitalService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    public List<HospitalListResponseProjection> getHospitalList(HospitalListRequestDto hospitalListRequestDto) {
+    public List<HospitalListResponseProjectionDto> getHospitalList(HospitalListRequestDto hospitalListRequestDto) {
         PageRequest pr = PageRequest.of(hospitalListRequestDto.getPageNumber(), hospitalListRequestDto.getPageSize(), hospitalListRequestDto.getSortBy().getSortByClause());
-        List<HospitalListResponseProjection> results = hospitalRepository.getHospitalList(
+
+        return hospitalRepository.getHospitalList(
                 hospitalListRequestDto.getIsNightService(),
                 hospitalListRequestDto.getIsSaturdayService(),
                 hospitalListRequestDto.getIsPublicNoninsuredCost(),
                 pr
         );
-
-        return results;
     }
 
 

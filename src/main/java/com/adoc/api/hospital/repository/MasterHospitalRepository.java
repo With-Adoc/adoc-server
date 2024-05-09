@@ -1,7 +1,7 @@
 package com.adoc.api.hospital.repository;
 
 import com.adoc.api.hospital.domain.MasterHospital;
-import com.adoc.api.hospital.dto.HospitalListResponseProjection;
+import com.adoc.api.hospital.dto.HospitalListResponseProjectionDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -31,5 +31,5 @@ public interface MasterHospitalRepository extends JpaRepository<MasterHospital, 
             "AND (:isPublicNoninsuredCost IS NULL OR MH.is_public_noninsured_cost = :isPublicNoninsuredCost)  ",
             countQuery = "SELECT COUNT(*) FROM master_hospitals",
             nativeQuery = true)
-    List<HospitalListResponseProjection> getHospitalList(Boolean isNightService, Boolean isSaturdayService, Boolean isPublicNoninsuredCost, Pageable pageable);
+    List<HospitalListResponseProjectionDto> getHospitalList(Boolean isNightService, Boolean isSaturdayService, Boolean isPublicNoninsuredCost, Pageable pageable);
 }

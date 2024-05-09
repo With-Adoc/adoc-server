@@ -2,7 +2,7 @@ package com.adoc.api.hospital.dto;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public interface HospitalListResponseProjection {
+public interface HospitalListResponseProjectionDto {
 
     @Value("#{target.isNightService == 1}")
     Boolean getIsNightService();
