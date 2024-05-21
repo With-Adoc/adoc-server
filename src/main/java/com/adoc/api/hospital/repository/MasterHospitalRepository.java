@@ -34,4 +34,17 @@ public interface MasterHospitalRepository extends JpaRepository<MasterHospital, 
             countQuery = "SELECT COUNT(*) FROM master_hospitals",
             nativeQuery = true)
     List<HospitalListResponseProjectionDto> getHospitalList(Boolean isNightService, Boolean isSaturdayService, Boolean isPublicNoninsuredCost, Pageable pageable);
+
+    @Query("SELECT isNightService AS isNightService,  \n" +
+            "isSaturdayService AS isSaturdayService,  \n" +
+            "isPublicNoninsuredCost AS isPublicNoninsuredCost, \n" +
+            "rating AS hospitalRating, \n" +
+            "name AS hospitalName, \n" +
+            "address AS hospitalAddress \n" +
+            "from MasterHospital " +
+            "where name like CONCAT('%',:search,'%')" +
+            "or address like CONCAT('%',:search,'%')")
+    List<HospitalListResponseProjectionDto> findAllByNameLikeOrAddressLike(String search, Pageable pageable);
+
+
 }
