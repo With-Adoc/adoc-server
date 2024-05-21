@@ -25,4 +25,10 @@ public class HospitalController {
         List<HospitalListResponseProjectionDto> hospitalList = hospitalService.getHospitalList(hospitalListRequestDto);
         return ResponseEntity.ok(hospitalList);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<HospitalListResponseProjectionDto>> getHospitalSearchList(@ParameterObject HospitalListRequestDto hospitalListRequestDto) {
+        List<HospitalListResponseProjectionDto> hospitalList = hospitalService.getHospitalSearchList(hospitalListRequestDto);
+        return ResponseEntity.ok(hospitalList);
+    }
 }

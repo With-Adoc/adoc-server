@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 @Getter
 @Setter
 public class HospitalListRequestDto extends PaginationDto {
+    private String search;
     private Boolean isNightService;
     private Boolean isSaturdayService;
     private Boolean isPublicNoninsuredCost;

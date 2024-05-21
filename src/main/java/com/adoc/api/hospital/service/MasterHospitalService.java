@@ -26,4 +26,13 @@ public class MasterHospitalService {
                 pr
         );
     }
+
+    public List<HospitalListResponseProjectionDto> getHospitalSearchList(HospitalListRequestDto hospitalListRequestDto) {
+        PageRequest pr = PageRequest.of(hospitalListRequestDto.getPageNumber(), hospitalListRequestDto.getPageSize(), hospitalListRequestDto.getSortBy().getSortByClause());
+
+        return hospitalRepository.findAllByNameLikeOrAddressLike(
+                hospitalListRequestDto.getSearch(),
+                pr
+        );
+    }
 }
