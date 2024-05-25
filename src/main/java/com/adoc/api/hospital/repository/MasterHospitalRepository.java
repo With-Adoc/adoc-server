@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public interface MasterHospitalRepository extends JpaRepository<MasterHospital, UUID> {
     @Query(value = "SELECT " +
+            "    BIN_TO_UUID(MH.hospital_id) AS hospitalId, " +
             "    IFNULL(MH.is_night_service, FALSE) AS isNightService, " +
             "    IFNULL(MH.is_saturday_service, FALSE) AS isSaturdayService, " +
             "    IFNULL(MH.is_public_noninsured_cost, FALSE) AS isPublicNoninsuredCost, " +
