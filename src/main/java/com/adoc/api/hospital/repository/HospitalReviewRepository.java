@@ -1,9 +1,7 @@
 package com.adoc.api.hospital.repository;
 
 import com.adoc.api.hospital.domain.HospitalReview;
-import com.adoc.api.hospital.domain.MasterHospital;
-import com.adoc.api.hospital.dto.HospitalListResponseProjectionDto;
-import com.adoc.api.hospital.dto.HospitalReviewListResponseProjectionDto;
+import com.adoc.api.hospital.dto.response.HospitalReviewListResponseProjectionDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

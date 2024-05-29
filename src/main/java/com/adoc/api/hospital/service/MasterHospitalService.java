@@ -1,8 +1,8 @@
 package com.adoc.api.hospital.service;
 
 import com.adoc.api.hospital.dto.request.HospitalListRequestDto;
-import com.adoc.api.hospital.dto.HospitalListResponseProjectionDto;
-import com.adoc.api.hospital.dto.HospitalReviewListResponseProjectionDto;
+import com.adoc.api.hospital.dto.response.HospitalListResponseProjectionDto;
+import com.adoc.api.hospital.dto.response.HospitalReviewListResponseProjectionDto;
 import com.adoc.api.hospital.dto.request.HospitalReviewListRequestDto;
 import com.adoc.api.hospital.dto.request.HospitalSearchListRequestDto;
 import com.adoc.api.hospital.repository.HospitalReviewRepository;

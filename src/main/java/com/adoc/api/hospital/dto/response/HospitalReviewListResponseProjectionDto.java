@@ -1,4 +1,4 @@
-package com.adoc.api.hospital.dto;
+package com.adoc.api.hospital.dto.response;
 
 import org.springframework.beans.factory.annotation.Value;
 

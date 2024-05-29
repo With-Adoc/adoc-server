@@ -1,14 +1,13 @@
 package com.adoc.api.hospital.controller;
 
 import com.adoc.api.hospital.dto.request.HospitalListRequestDto;
-import com.adoc.api.hospital.dto.HospitalListResponseProjectionDto;
-import com.adoc.api.hospital.dto.HospitalReviewListResponseProjectionDto;
+import com.adoc.api.hospital.dto.response.HospitalListResponseProjectionDto;
+import com.adoc.api.hospital.dto.response.HospitalReviewListResponseProjectionDto;
 import com.adoc.api.hospital.dto.request.HospitalReviewListRequestDto;
 import com.adoc.api.hospital.dto.request.HospitalSearchListRequestDto;
 import com.adoc.api.hospital.service.MasterHospitalService;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
