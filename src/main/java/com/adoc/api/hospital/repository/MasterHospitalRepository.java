@@ -44,13 +44,13 @@ public interface MasterHospitalRepository extends JpaRepository<MasterHospital, 
             "   MH.rating AS hospitalRating, " +
             "   MH.name AS hospitalName, " +
             "   MH.address AS hospitalAddress, " +
-            "   count(HR.reviewId) AS reviewCount " +
-            "from MasterHospital MH " +
-            "left join HospitalReview HR " +
-            "   on MH.id = HR.hospital.id " +
-            "where MH.name like CONCAT('%',:search,'%')" +
-            "   or MH.address like CONCAT('%',:search,'%')" +
-            "group by MH.id")
+            "   COUNT(HR.reviewId) AS reviewCount " +
+            "FROM MasterHospital MH " +
+            "LEFT JOIN HospitalReview HR " +
+            "   ON MH.id = HR.hospital.id " +
+            "WHERE MH.name LIKE CONCAT('%',:search,'%')" +
+            "   OR MH.address LIKE CONCAT('%',:search,'%')" +
+            "GROUP BY MH.id")
     List<HospitalListResponseProjectionDto> findAllByNameLikeOrAddressLike(String search, Pageable pageable);
 
 

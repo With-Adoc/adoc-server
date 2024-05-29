@@ -16,8 +16,8 @@ public interface HospitalReviewRepository extends JpaRepository<HospitalReview, 
             "  HR.content AS content, " +
             "  HR.nickname AS nickname, " +
             "  HR.score AS score " +
-            "from HospitalReview HR " +
-            "where HR.hospital.id = :uuid")
+            "FROM HospitalReview HR " +
+            "WHERE HR.hospital.id = :uuid")
     List<HospitalReviewListResponseProjectionDto> findAllByHospitalId(UUID uuid, Pageable pageable);
 
 
