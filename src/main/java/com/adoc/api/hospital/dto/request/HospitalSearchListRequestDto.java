@@ -1,4 +1,4 @@
-package com.adoc.api.hospital.dto;
+package com.adoc.api.hospital.dto.request;
 
 import com.adoc.api.common.dto.PaginationDto;
 import lombok.Getter;
@@ -7,12 +7,9 @@ import org.springframework.data.domain.Sort;
 
 @Getter
 @Setter
-public class HospitalListRequestDto extends PaginationDto {
+public class HospitalSearchListRequestDto extends PaginationDto {
     private String search;
-    private Boolean isNightService;
-    private Boolean isSaturdayService;
-    private Boolean isPublicNoninsuredCost;
-    private SortBy sortBy;
+    private SortBy sortBy = SortBy.RATING_DESC; // 기본 정렬값
 
     public enum SortBy {
         RATING_DESC(Sort.by(Sort.Direction.DESC, "hospitalRating")),

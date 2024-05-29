@@ -1,7 +1,7 @@
 package com.adoc.api.hospital.repository;
 
 import com.adoc.api.hospital.domain.MasterHospital;
-import com.adoc.api.hospital.dto.HospitalListResponseProjectionDto;
+import com.adoc.api.hospital.dto.response.HospitalListResponseProjectionDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -36,15 +36,21 @@ public interface MasterHospitalRepository extends JpaRepository<MasterHospital, 
             nativeQuery = true)
     List<HospitalListResponseProjectionDto> getHospitalList(Boolean isNightService, Boolean isSaturdayService, Boolean isPublicNoninsuredCost, Pageable pageable);
 
-    @Query("SELECT isNightService AS isNightService,  \n" +
-            "isSaturdayService AS isSaturdayService,  \n" +
-            "isPublicNoninsuredCost AS isPublicNoninsuredCost, \n" +
-            "rating AS hospitalRating, \n" +
-            "name AS hospitalName, \n" +
-            "address AS hospitalAddress \n" +
-            "from MasterHospital " +
-            "where name like CONCAT('%',:search,'%')" +
-            "or address like CONCAT('%',:search,'%')")
+    @Query("SELECT " +
+            "   BIN_TO_UUID(MH.id) AS hospitalId, " +
+            "   MH.isNightService AS isNightService, " +
+            "   MH.isSaturdayService AS isSaturdayService, " +
+            "   MH.isPublicNoninsuredCost AS isPublicNoninsuredCost, " +
+            "   MH.rating AS hospitalRating, " +
+            "   MH.name AS hospitalName, " +
+            "   MH.address AS hospitalAddress, " +
+            "   count(HR.reviewId) AS reviewCount " +
+            "from MasterHospital MH " +
+            "left join HospitalReview HR " +
+            "   on MH.id = HR.hospital.id " +
+            "where MH.name like CONCAT('%',:search,'%')" +
+            "   or MH.address like CONCAT('%',:search,'%')" +
+            "group by MH.id")
     List<HospitalListResponseProjectionDto> findAllByNameLikeOrAddressLike(String search, Pageable pageable);
 
 
